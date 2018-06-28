@@ -1,0 +1,8 @@
+{
+  "name": "PillGood-API",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/PillGood/PillGood-API",
+  "author": "Raye <okps123@naver.com>",
+  "license": "MIT"
+}
