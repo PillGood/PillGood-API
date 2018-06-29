@@ -39,5 +39,8 @@ def create_pill(data):
 
         return response_object, 409
 
+def find_pills(data):
+    return Pill.query.filter(Pill.name.contains(data['name'])).all() 
+
 def get_all_pills():
     return Pill.query.all()
