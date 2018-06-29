@@ -1,5 +1,5 @@
 from flask import Flask
-from config import config_by_name
+from server.config import config_by_name
 
 def create_app(config):
     app = Flask(__name__)
