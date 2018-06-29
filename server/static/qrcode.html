@@ -1,0 +1,47 @@
+{% extends "template/layout.html" %}
+
+{% block title %}처방전 QR코드 생성 - Pill Good{% endblock %}
+
+{% block body %}
+{% include "template/nav.html" %}
+
+
+<div class="container">
+  <div class="section">
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+          <h5 class="center">빠르게</h5>
+          <p class="light">병원에서 어떤 약을 먹냐고 물어본 경험이 있으신가요? 그럴때 이 앱을 통해 빠르고 쉽게 복용했던 약에 대해 알려 줄 수 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+          <h5 class="center">안전하게</h5>
+
+          <p class="light">자녀 혹은 부모님이 약을 잘 드셨는지 걱정됬던 적이 있으셨나요? 이 앱을 통해서 약을 복용했는지 확인할 수 있어요.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+          <h5 class="center">편리하게</h5>
+          <p class="light">먹던 약이 무슨 약인지 궁금했던 경험이 있나요? 저희는 공공 데이터를 활용해서 알약에 대한 정보를 수집하였고 이를 바탕으로 쉽게 약에 대한 정보를 제공합니다.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+  <div class="footer-copyright">
+    <div class="container">
+    Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+    </div>
+  </div>
+</footer>
+{% endblock %}

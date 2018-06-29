@@ -3,8 +3,7 @@ from server.services import pill_service
 from xml.etree import ElementTree
 import requests
 
-pill_bp = Blueprint('pill', __name__, url_prefix='/pill')
-
+pill_bp = Blueprint('pill', __name__, url_prefix='/api/pill')
 
 API_URL = 'http://apis.data.go.kr/1470000/MdcinGrnIdntfcInfoService/getMdcinGrnIdntfcInfoList'
 API_TOKEN = '5MkwNOpsxG7bTvpEyKpaRAAqMLgXZ82LYeMkaUQMZ62aipvWuS92MaQO%2FdyT9qdFcK0ySiGOIWAsd57tDveaUg%3D%3D'
