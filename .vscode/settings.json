@@ -8,6 +8,7 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/venv": true
+        "**/venv": true,
+        "**/__pycache__": true
     }
 }
