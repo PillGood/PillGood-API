@@ -55,15 +55,6 @@ def get_pill_info():
             'entp_name': item.findtext('ENTP_NAME'),
             'chart': item.findtext('CHART'),
             'image': item.findtext('ITEM_IMAGE'),
-            'print': {
-                'front': item.findtext('PRINT_FRONT'),
-                'back': item.findtext('PRINT_BACK')
-            },
-            'color': {
-                'front': item.findtext('COLOR_CLASS1'),
-                'back': item.findtext('COLOR_CLASS2')
-            },
-            'shape': item.findtext('DRUG_SHAPE'),
             'class': item.findtext('CLASS_NAME'),
             'otc_name': item.findtext('ETC_OTC_NAME')
         }
