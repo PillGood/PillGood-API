@@ -8,6 +8,8 @@ def create_app(config):
     app = Flask(__name__)
     app.config.from_object(config_by_name[config])
 
+    db.init_app(app)
+    
     from server.routes.auth import auth_bp
     app.register_blueprint(auth_bp)
 
