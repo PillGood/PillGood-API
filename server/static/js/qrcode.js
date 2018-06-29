@@ -2,21 +2,17 @@
     $(function(){
         $('#save_pill').on('click', function() {
             var modal = $("#modal1");
-
             var pill_name = modal.find("#pill_name").val();
             if(pill_name === "") {
                 alert("처방 의약품 명칭을 입력하세요.")
                 return;
             }
-            alert(pill_name);
 
             var one_dose = modal.find("#one_dose").val();
             if(one_dose === "") {
                 alert("1회 투여량을 입력하세요.")
                 return;
             }
-            alert(one_dose);
-            
             var day_dose = modal.find("#day_dose").val();
             if(day_dose === "") {
                 alert("1일 투여횟수를 입력하세요.")
