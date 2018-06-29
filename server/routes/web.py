@@ -25,4 +25,7 @@ def generator_qrcode():
         'code': 'success',
         'url': url_for('static', filename='image/code.png?' + hash)
     })
-    
+
+@web_bp.route('/demo', methods=['GET'])
+def demo():
+    return render_template('demo.html')
