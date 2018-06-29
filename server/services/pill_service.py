@@ -5,12 +5,13 @@ from server.models.Enterprise import Enterprise
 def create_pill(data):
     pill = Pill.query.filter_by(pill_id=data['pill_id']).first()
     if not pill:
-        enterprise = Enterprise.query.filter_by(enterprise_id)
-
-        new_enterprise = Enterprise(
+        enterprise = Enterprise.query.filter_by(enterprise_id=data['enterprise_id']).first()
+        if not enterprise:
+            enterprise = Enterprise(
                 name = data['enterprise_name'],
                 enterprise_id = data['enterprise_id']
-        )
+            )
+            db.session.add(enterprise)
 
         new_pill = Pill(
             pill_id = data['pill_id'],
@@ -22,10 +23,13 @@ def create_pill(data):
             otc_type = data['otc_type'],
             enterprise = enterprise
         )
-
-        db.session.add(enterprise)
         db.session.add(new_pill)
         db.session.commit()
+
+        response_object = {
+            'code': 'success'
+        }
+        return response_object, 200
 
     else:
         response_object = {
