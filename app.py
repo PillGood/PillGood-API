@@ -3,7 +3,7 @@ from server import create_app, db
 from server.services import pill_service
 import os
 
-app = create_app(os.getenv('ENV') or 'dev')
+app = create_app('prod')
 migrate = Migrate(app, db)
 
 app.app_context().push()
