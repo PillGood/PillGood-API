@@ -1,5 +1,6 @@
 class Config:
     DEBUG = False
+    JSON_AS_ASCII = False
 
 class DevelopmentConfig(Config):
     ENV = 'development'
