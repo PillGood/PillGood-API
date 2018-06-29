@@ -5,6 +5,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     DEBUG = False
     JSON_AS_ASCII = False
+    SERVER_NAME = '127.0.0.1:5000'
 
 class DevelopmentConfig(Config):
     ENV = 'development'
@@ -22,7 +23,8 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     ENV = 'production'
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = ''
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'prod.db')
+    SERVER_NAME = '0.0.0.0:80'
 
 config_by_name = {
     'dev': DevelopmentConfig,
