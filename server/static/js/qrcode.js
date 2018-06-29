@@ -1,5 +1,11 @@
 (function($){
     $(function(){
+        // ㅎ_ㅎ
+        $("#hospital_name").val('오픈핵 병원');
+        $("#date").val('20180630');
+        $("#user_name").val('약쟁이');
+        $("#user_id").val('980101-XXXXXXX');
+
         $('#save_pill').on('click', function() {
             var modal = $("#modal1");
 
