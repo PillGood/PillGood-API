@@ -7,41 +7,138 @@
 
 
 <div class="container">
-  <div class="section">
-    <!--   Icon Section   -->
-    <div class="row">
-      <div class="col s12 m4">
-        <div class="icon-block">
-          <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-          <h5 class="center">빠르게</h5>
-          <p class="light">병원에서 어떤 약을 먹냐고 물어본 경험이 있으신가요? 그럴때 이 앱을 통해 빠르고 쉽게 복용했던 약에 대해 알려 줄 수 있습니다.</p>
-        </div>
-      </div>
-
-      <div class="col s12 m4">
-        <div class="icon-block">
-          <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-          <h5 class="center">안전하게</h5>
-
-          <p class="light">자녀 혹은 부모님이 약을 잘 드셨는지 걱정됬던 적이 있으셨나요? 이 앱을 통해서 약을 복용했는지 확인할 수 있어요.</p>
-        </div>
-      </div>
-
-      <div class="col s12 m4">
-        <div class="icon-block">
-          <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-          <h5 class="center">편리하게</h5>
-          <p class="light">먹던 약이 무슨 약인지 궁금했던 경험이 있나요? 저희는 공공 데이터를 활용해서 알약에 대한 정보를 수집하였고 이를 바탕으로 쉽게 약에 대한 정보를 제공합니다.</p>
-        </div>
-      </div>
+    <div class="row" style="margin-top: 5%; margin-bottom: 5%;">
+        <h5>처방전 QRCode 생성</h5>
+        <blockquote>
+            데이터를 바탕으로 QRCode가 생성됩니다.
+            추후 처방전에 포함되거나 하여 알약 정보를 기입할 필요없이 바로 입력할 수 있습니다.
+        </blockquote>
     </div>
+    <div class="card">
+        <div class="card-content">
+            <div class="row">
+                <form class="col s12">
+                    <h6>병원 정보</h6>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="코코팜 병원" id="hospital_name" type="text" class="validate">
+                            <label for="hospital_name">의료기관 명칭</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="T. 055-931-8460" id="hospital_tel" type="text" class="validate">
+                            <label for="hospital_tel">전화</label>
+                        </div>
+                    </div>
 
-  </div>
+                    <h6>환자 정보</h6>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="홍길동" id="user_name" type="text" class="validate">
+                            <label for="user_name">이름</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="950123-1023456" id="user_id" type="text" class="validate">
+                            <label for="user_id">주민등록번호</label>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-left: 0px; margin-right: 0px;">
+                        <h6>약</h6>
+                        <button data-target="modal1" class="btn right black modal-trigger"><i class="material-icons left">add</i>약 추가</button>
+                    </div>
+
+                    <div class="row" style="margin-left: 0px; margin-right: 0px;">
+                        <ul class="collection">
+                            <li class="collection-item">
+                                <div class="row" style="margin-bottom: 0px;">
+                                    <div class="col s4">
+                                        처방 의역품 명칭
+                                        </div>
+                                    <div class="col s2">
+                                        1회 투여량
+                                    </div>
+                                    <div class="col s2">
+                                        1일 투여횟수
+                                    </div>
+                                    <div class="col s2">
+                                        투약일수
+                                    </div>
+                                    <div class="col s2">
+                                        용별
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="collection-item">
+                                <div class="row" style="margin-bottom: 0px;">
+                                    <div class="col s4">
+                                        가야산 천년수
+                                        </div>
+                                    <div class="col s2">
+                                        200L
+                                    </div>
+                                    <div class="col s2">
+                                        1
+                                    </div>
+                                    <div class="col s2">
+                                        1
+                                    </div>
+                                    <div class="col s2">
+                                        식전후 30분
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col s12">
+                        <a class="waves-effect waves-light btn blue right" style="width: 100%;"><i class="material-icons left">send</i>제출</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-  <div class="footer-copyright">
-    <div class="container">
-    Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h5>새 약 등록</h5>
+        <div class="row" style="margin-top: 24px; margin-bottom: 0px;">
+            <div class="col s4">
+                <div class="input-field">
+                    <input placeholder="타이레놀" id="hospital_tel" type="text" class="validate">
+                    <label for="hospital_tel">처방 의약품 명칭</label>
+                </div>
+            </div>
+            <div class="col s2">
+                <div class="input-field">
+                    <input placeholder="1mg" id="hospital_tel" type="text" class="validate">
+                    <label for="hospital_tel">1회 투여량</label>
+                </div>
+            </div>
+            <div class="col s2">
+                <div class="input-field">
+                    <input placeholder="3" id="hospital_tel" type="number" class="validate">
+                    <label for="hospital_tel">1일 투여횟수</label>
+                </div>
+            </div>
+            <div class="col s2">
+                <div class="input-field">
+                    <input placeholder="3" id="hospital_tel" type="number" class="validate">
+                    <label for="hospital_tel">투약 일수</label>
+                </div>
+            </div>
+            <div class="col s2">
+                <div class="input-field">
+                    <input placeholder="식전 30분" id="hospital_tel" type="text" class="validate">
+                    <label for="hospital_tel">용별</label>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</footer>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-blue btn-flat">추가</a>
+        <a href="#!" class="modal-close waves-effect waves-red btn-flat">취소</a>
+    </div>
+</div>
+
 {% endblock %}
