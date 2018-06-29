@@ -91,7 +91,7 @@
                     </div>
 
                     <div class="col s12" style="padding: 0px;">
-                        <a class="waves-effect waves-light btn blue right" style="width: 100%;"><i class="material-icons left">send</i>제출</a>
+                        <a id="submit" class="waves-effect waves-light btn blue right" style="width: 100%;"><i class="material-icons left">send</i>제출</a>
                     </div>
                 </form>
             </div>
@@ -140,6 +140,16 @@
         <a href="#!" class="modal-close waves-effect waves-red btn-flat">취소</a>
     </div>
 </div>
+
+<div id="modal2" class="modal">
+        <div class="modal-content">
+            <h5>QR코드</h5>
+            <img id="qrcode" width="256" class="center"></img>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-red btn-flat">닫기</a>
+        </div>
+    </div>
 
 {% endblock %}
 
