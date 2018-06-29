@@ -68,21 +68,21 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="collection-item">
+                            <li id="pill-template" class="collection-item" style="display: none;">
                                 <div class="row" style="margin-bottom: 0px;">
-                                    <div class="col s4">
+                                    <div id="pill_name" class="col s4">
                                         가야산 천년수
-                                        </div>
-                                    <div class="col s2">
+                                    </div>
+                                    <div id="one_dose" class="col s2">
                                         200L
                                     </div>
-                                    <div class="col s2">
+                                    <div id="day_dose" class="col s2">
                                         1
                                     </div>
-                                    <div class="col s2">
+                                    <div id="dose_days" class="col s2">
                                         1
                                     </div>
-                                    <div class="col s2">
+                                    <div id="dose_time" class="col s2">
                                         식전후 30분
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@
                         </ul>
                     </div>
 
-                    <div class="col s12">
+                    <div class="col s12" style="padding: 0px;">
                         <a class="waves-effect waves-light btn blue right" style="width: 100%;"><i class="material-icons left">send</i>제출</a>
                     </div>
                 </form>
@@ -105,40 +105,44 @@
         <div class="row" style="margin-top: 24px; margin-bottom: 0px;">
             <div class="col s4">
                 <div class="input-field">
-                    <input placeholder="타이레놀" id="hospital_tel" type="text" class="validate">
-                    <label for="hospital_tel">처방 의약품 명칭</label>
+                    <input placeholder="타이레놀" id="pill_name" type="text" class="validate">
+                    <label for="pill_name">처방 의약품 명칭</label>
                 </div>
             </div>
             <div class="col s2">
                 <div class="input-field">
-                    <input placeholder="1mg" id="hospital_tel" type="text" class="validate">
-                    <label for="hospital_tel">1회 투여량</label>
+                    <input placeholder="1mg" id="one_dose" type="text" class="validate">
+                    <label for="on_dose">1회 투여량</label>
                 </div>
             </div>
             <div class="col s2">
                 <div class="input-field">
-                    <input placeholder="3" id="hospital_tel" type="number" class="validate">
-                    <label for="hospital_tel">1일 투여횟수</label>
+                    <input placeholder="3" id="day_dose" type="number" class="validate">
+                    <label for="day_dose">1일 투여횟수</label>
                 </div>
             </div>
             <div class="col s2">
                 <div class="input-field">
-                    <input placeholder="3" id="hospital_tel" type="number" class="validate">
-                    <label for="hospital_tel">투약 일수</label>
+                    <input placeholder="3" id="dose_days" type="number" class="validate">
+                    <label for="dose_days">투약 일수</label>
                 </div>
             </div>
             <div class="col s2">
                 <div class="input-field">
-                    <input placeholder="식전 30분" id="hospital_tel" type="text" class="validate">
-                    <label for="hospital_tel">용별</label>
+                    <input placeholder="식전 30분" id="dose_time" type="text" class="validate">
+                    <label for="dose_time">용별</label>
                 </div>
             </div>
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-blue btn-flat">추가</a>
+        <a id="save_pill" class="modal-close waves-effect waves-blue btn-flat">추가</a>
         <a href="#!" class="modal-close waves-effect waves-red btn-flat">취소</a>
     </div>
 </div>
 
+{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='js/qrcode.js') }}"></script>
 {% endblock %}
