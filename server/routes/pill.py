@@ -9,22 +9,82 @@ API_TOKEN = '5MkwNOpsxG7bTvpEyKpaRAAqMLgXZ82LYeMkaUQMZ62aipvWuS92MaQO%2FdyT9qdFc
 
 API_REQUEST_URL = '%s?ServiceKey=%s' % (API_URL, API_TOKEN)
 
-@pill_bp.route('/find', methods=['GET'])
-def find_pills():
-    name = request.args.get('name')
-
-    url = '%s&item_name=%s&numOfRows=10&pageNo=1' % (API_REQUEST_URL, name)
+def search_open_api(item_name, entp_name=''):
+    url = API_REQUEST_URL + '&item_name=%s&entp_name=%s&numOfRows=10&pageNo=1' % (item_name, entp_name)
     response_text = requests.get(url).text
 
-    xml_root = ElementTree.fromstring(response_text)
+    return response_text
 
-    response_data = []
+@pill_bp.route('/info', methods=['GET'])
+def get_pill_info():
+    item_id = request.args.get('item_id')
+    item_name = request.args.get('item_name')
+    entp_name = request.args.get('entp_name')
 
+    if not item_id or not item_name or not entp_name:
+        return jsonify({ 'code': 'error', 'message': 'wrong query string' }), 400
+
+    xml_root = ElementTree.fromstring(
+        search_open_api(item_name, entp_name)
+    )
+
+    # open api error handling
     result_code = xml_root.find('header').find('resultCode').text
     if result_code != '00':
         result_msg = xml_root.find('header').find('resultMsg').text
-        return result_msg, 503
+        return jsonify({ 'code': 'error', 'message': result_msg }), 503
 
+    # find equal item
+    items = xml_root.find('body').find('items').findall('item')
+    filtered_item = list(filter(lambda l: l.findtext('ITEM_SEQ') == item_id, items))
+
+    if len(filtered_item) == 0:
+        return jsonify({})
+
+    item = filtered_item[0]
+    return jsonify({
+        'code': 'success',
+        'data': {
+            'item_id': item.findtext('ITEM_SEQ'),
+            'item_name': item.findtext('ITEM_NAME'),
+            'item_eng_name': item.findtext('ITEM_ENG_NAME'),
+            'entp_id': item.findtext('ENTP_SEQ'),
+            'entp_name': item.findtext('ENTP_NAME'),
+            'chart': item.findtext('CHART'),
+            'image': item.findtext('ITEM_IMAGE'),
+            'print': {
+                'front': item.findtext('PRINT_FRONT'),
+                'back': item.findtext('PRINT_BACK')
+            },
+            'color': {
+                'front': item.findtext('COLOR_CLASS1'),
+                'back': item.findtext('COLOR_CLASS2')
+            },
+            'shape': item.findtext('DRUG_SHAPE'),
+            'class': item.findtext('CLASS_NAME'),
+            'otc_name': item.findtext('ETC_OTC_NAME')
+        }
+    })
+
+@pill_bp.route('/find', methods=['GET'])
+def find_pills():
+    item_name = request.args.get('item_name')
+    if not item_name:
+        return jsonify({ 'code': 'error', 'message': 'wrong parameter' }), 503
+
+    xml_root = ElementTree.fromstring(
+        search_open_api(item_name)
+    )
+
+    response_data = []
+
+    # open api error handling
+    result_code = xml_root.find('header').find('resultCode').text
+    if result_code != '00':
+        result_msg = xml_root.find('header').find('resultMsg').text
+        return jsonify({ 'code': 'error', 'message': result_msg }), 503
+
+    # parsing response data (xml format)
     items = xml_root.find('body').find('items').findall('item')
     for item in items:
         response_data.append({
@@ -34,4 +94,7 @@ def find_pills():
             "entp_name": item.findtext('ENTP_NAME')
         })
         
-    return jsonify(response_data)
+    return jsonify({
+        'code': 'success',
+        'data': response_data
+    })
