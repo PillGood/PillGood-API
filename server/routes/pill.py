@@ -10,7 +10,7 @@ API_TOKEN = '5MkwNOpsxG7bTvpEyKpaRAAqMLgXZ82LYeMkaUQMZ62aipvWuS92MaQO%2FdyT9qdFc
 API_REQUEST_URL = '%s?ServiceKey=%s' % (API_URL, API_TOKEN)
 
 @pill_bp.route('/find', methods=['GET'])
-def get_pills():
+def find_pills():
     name = request.args.get('name')
 
     url = '%s&item_name=%s&numOfRows=10&pageNo=1' % (API_REQUEST_URL, name)
