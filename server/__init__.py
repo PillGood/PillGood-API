@@ -10,9 +10,6 @@ def create_app(config):
 
     db.init_app(app)
     
-    from server.routes.auth import auth_bp
-    app.register_blueprint(auth_bp)
-
     from server.routes.pill import pill_bp
     app.register_blueprint(pill_bp)
 

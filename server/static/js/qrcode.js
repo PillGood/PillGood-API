@@ -73,8 +73,6 @@
                 });
             });
 
-            console.log(JSON.stringify(request_data));
-            
             $.ajax({
                 type: "POST",
                 url: '/qrcode',
