@@ -14,7 +14,7 @@ def qrcode():
 
 @web_bp.route('/qrcode', methods=['POST'])
 def generator_qrcode():
-    data = list(request.form.to_dict(flat=False).keys())[0]
+    data = request.get_json()
 
     hash = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(5))
 

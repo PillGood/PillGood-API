@@ -22,13 +22,12 @@ def search_open_api(item_name, entp_name=''):
 def get_pill_info():
     item_id = request.args.get('item_id')
     item_name = request.args.get('item_name')
-    entp_name = request.args.get('entp_name')
 
-    if not item_id or not item_name or not entp_name:
+    if not item_id or not item_name:
         return jsonify({ 'code': 'error', 'message': 'wrong query string' }), 400
 
     xml_root = ElementTree.fromstring(
-        search_open_api(item_name, entp_name)
+        search_open_api(item_name)
     )
 
     # open api error handling

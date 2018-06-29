@@ -73,10 +73,12 @@
                 });
             });
 
+            console.log(JSON.stringify(request_data));
+            
             $.ajax({
                 type: "POST",
                 url: '/qrcode',
-                data: request_data,
+                data: JSON.stringify(request_data),
                 contentType: "application/json",
                 success: function(data) {
                     console.log(data);
