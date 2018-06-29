@@ -4,16 +4,19 @@ from xml.etree import ElementTree
 
 pill_bp = Blueprint('pill', __name__, url_prefix='/pill')
 
+
 API_URL = 'http://apis.data.go.kr/1470000/MdcinGrnIdntfcInfoService/getMdcinGrnIdntfcInfoList'
 API_TOKEN = '5MkwNOpsxG7bTvpEyKpaRAAqMLgXZ82LYeMkaUQMZ62aipvWuS92MaQO%2FdyT9qdFcK0ySiGOIWAsd57tDveaUg%3D%3D'
 
 API_REQUEST_URL = '%s?ServiceKey=%s' % (API_URL, API_TOKEN)
+
 
 def search_open_api(item_name, entp_name=''):
     url = API_REQUEST_URL + '&item_name=%s&entp_name=%s&numOfRows=10&pageNo=1' % (item_name, entp_name)
     response_text = requests.get(url).text
 
     return response_text
+
 
 @pill_bp.route('/info', methods=['GET'])
 def get_pill_info():
@@ -65,6 +68,7 @@ def get_pill_info():
             'otc_name': item.findtext('ETC_OTC_NAME')
         }
     })
+
 
 @pill_bp.route('/find', methods=['GET'])
 def find_pills():
