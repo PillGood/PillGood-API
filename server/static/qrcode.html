@@ -25,8 +25,8 @@
                             <label for="hospital_name">의료기관 명칭</label>
                         </div>
                         <div class="input-field col s6">
-                            <input placeholder="T. 055-931-8460" id="hospital_tel" type="text" class="validate">
-                            <label for="hospital_tel">전화</label>
+                            <input placeholder="2018-06-30" id="date" type="text" class="validate">
+                            <label for="date">처방 일</label>
                         </div>
                     </div>
 
@@ -52,38 +52,26 @@
                             <li class="collection-item">
                                 <div class="row" style="margin-bottom: 0px;">
                                     <div class="col s4">
-                                        처방 의역품 명칭
-                                        </div>
-                                    <div class="col s2">
-                                        1회 투여량
+                                        의약품 번호
+                                    </div>
+                                    <div class="col s6">
+                                        의약품 명칭
                                     </div>
                                     <div class="col s2">
-                                        1일 투여횟수
-                                    </div>
-                                    <div class="col s2">
-                                        투약일수
-                                    </div>
-                                    <div class="col s2">
-                                        용별
+                                        비고
                                     </div>
                                 </div>
                             </li>
                             <li id="pill-template" class="collection-item" style="display: none;">
                                 <div class="row" style="margin-bottom: 0px;">
-                                    <div id="pill_name" class="col s4">
-                                        가야산 천년수
+                                    <div id="pill_id" class="col s4">
+                                        7777
                                     </div>
-                                    <div id="one_dose" class="col s2">
-                                        200L
-                                    </div>
-                                    <div id="day_dose" class="col s2">
-                                        1
-                                    </div>
-                                    <div id="dose_days" class="col s2">
-                                        1
+                                    <div id="pill_name" class="col s6">
+                                        당첨! 이스터에그입니다. (오류 아닙니다)
                                     </div>
                                     <div id="dose_time" class="col s2">
-                                        식전후 30분
+                                        7번
                                     </div>
                                 </div>
                             </li>
@@ -104,33 +92,21 @@
         <h5>새 약 등록</h5>
         <div class="row" style="margin-top: 24px; margin-bottom: 0px;">
             <div class="col s4">
+                    <div class="input-field">
+                        <input placeholder="00000000" id="pill_id" type="text" class="validate">
+                        <label for="pill_id">의약품 번호</label>
+                    </div>
+                </div>
+            <div class="col s6">
                 <div class="input-field">
                     <input placeholder="타이레놀" id="pill_name" type="text" class="validate">
-                    <label for="pill_name">처방 의약품 명칭</label>
+                    <label for="pill_name">의약품 명칭</label>
                 </div>
             </div>
             <div class="col s2">
                 <div class="input-field">
-                    <input placeholder="1mg" id="one_dose" type="text" class="validate">
-                    <label for="on_dose">1회 투여량</label>
-                </div>
-            </div>
-            <div class="col s2">
-                <div class="input-field">
-                    <input placeholder="3" id="day_dose" type="number" class="validate">
-                    <label for="day_dose">1일 투여횟수</label>
-                </div>
-            </div>
-            <div class="col s2">
-                <div class="input-field">
-                    <input placeholder="3" id="dose_days" type="number" class="validate">
-                    <label for="dose_days">투약 일수</label>
-                </div>
-            </div>
-            <div class="col s2">
-                <div class="input-field">
-                    <input placeholder="식전 30분" id="dose_time" type="text" class="validate">
-                    <label for="dose_time">용별</label>
+                    <input placeholder="식후 30분" id="dose_time" type="text" class="validate">
+                    <label for="dose_time">비고</label>
                 </div>
             </div>
         </div>
@@ -142,14 +118,14 @@
 </div>
 
 <div id="modal2" class="modal">
-        <div class="modal-content">
-            <h5>QR코드</h5>
-            <img id="qrcode" width="256" class="center"></img>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-red btn-flat">닫기</a>
-        </div>
+    <div class="modal-content">
+        <h5>QR코드</h5>
+        <img id="qrcode" width="256" class="center"></img>
     </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-red btn-flat">닫기</a>
+    </div>
+</div>
 
 {% endblock %}
 
