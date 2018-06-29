@@ -43,7 +43,10 @@ def get_pill_info():
     filtered_item = list(filter(lambda l: l.findtext('ITEM_SEQ') == item_id, items))
 
     if len(filtered_item) == 0:
-        return jsonify({})
+        return jsonify({
+            'code': 'success',
+            'data': []
+        })
 
     item = filtered_item[0]
     return jsonify({
